@@ -50,19 +50,30 @@ class LinkedQueue:
 
         if self.is_empty():
             self._head = newNode
-            self._tail = newNode
         else:
             self._tail._next = newNode
-            self._tail = newNode
+
         self._n += 1
+        self._tail = newNode
 
 
 if __name__ == '__main__':
     queue = LinkedQueue()
-    print('Loading 10 elements to the queue ....')
+    print('Case 1: Loading 10 elements to the queue ....')
     for i in range(10):
         queue.enqueue(i)
 
-    print('Dequeing ....')
+    print('Case 1: Dequeing ....')
     while not queue.is_empty():
         print(queue.dequeue())
+
+    print('Case 2: Enqueueing after a dequeue 5 elements ....')
+    for i in range(5):
+        queue.enqueue(i)
+
+    print('Case 2: Dequeing ....')
+    while not queue.is_empty():
+        print(queue.dequeue())
+
+    print('Case 3: Dequeing empty queue ....')
+    queue.dequeue()
